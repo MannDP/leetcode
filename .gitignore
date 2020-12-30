@@ -2,8 +2,8 @@
 .*
 
 # except the following
-.*.cpp
-.*.java
-.*.py
-.*.js
-.*.gitignore
+!.*.cpp
+!.*.java
+!.*.py
+!.*.js
+!.*.gitignore
