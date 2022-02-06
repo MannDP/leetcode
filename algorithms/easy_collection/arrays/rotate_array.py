@@ -1,6 +1,7 @@
 from cgi import test
 from typing import List
 
+
 class Solution:
     def rotate(self, nums: List[int], k: int) -> None:
         # do it with constant space
@@ -19,8 +20,7 @@ class Solution:
             nums[end_idx] = tmp
             start_idx += 1
             end_idx -= 1
-    
-    
+
     def cyclic_shift(self, nums: List[int], k: int) -> None:
         k = k % len(nums)
         if not k:
@@ -31,7 +31,7 @@ class Solution:
         while count != len(nums):
             # do the first iteration
             current_idx, next_idx = start_idx, (current_idx + k) % len(nums)
-            
+
             # store current value and write through
             tmp = nums[next_idx]
             nums[next_idx] = nums[current_idx]
@@ -49,10 +49,10 @@ class Solution:
 
 
 s = Solution()
-test_case = [1,2,3,4,5,6,7]
+test_case = [1, 2, 3, 4, 5, 6, 7]
 s.rotate(test_case, 3)
 print(test_case)
 
-test_case = [-1,-100,3,99]
+test_case = [-1, -100, 3, 99]
 s.rotate(test_case, 2)
 print(test_case)
