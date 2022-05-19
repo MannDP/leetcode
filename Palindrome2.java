@@ -1,6 +1,6 @@
 public class Main {
 
-    static class Solution {
+    static class Palindrome2 {
         public boolean validPalindrome(String s) {
             // test whether the string itself is a palindrome
             if (isPalindrome(s)) {

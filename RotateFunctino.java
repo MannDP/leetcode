@@ -1,4 +1,4 @@
-public class Main {
+public class RotateFunction {
     public static void main(String[] args) {
         int[] input = new int[] { -2147483648, -2147483648 };
         int[] input2 = new int[] { 4, 3, 2, 6 };

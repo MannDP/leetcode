@@ -1,4 +1,4 @@
-public class Main {
+public class ValidBoomerang {
     static class Solution {
         public boolean isBoomerang(int[][] points) {
             int[] p0 = points[0];
