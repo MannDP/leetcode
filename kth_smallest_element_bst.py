@@ -1,6 +1,7 @@
 from typing import Optional
 
 
+# Definition for a binary tree node.
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
@@ -9,16 +10,17 @@ class TreeNode:
 
 
 class Solution:
-    # O(n) time, O(k) space
+    # time: O(n), space: O(n)
     def kthSmallest(self, root: Optional[TreeNode], k: int) -> int:
-        nodes = []
-
-        while True:
+       stack = []
+       while True:
             while root:
-                nodes.append(root)
-                root = root.left
-            root = nodes.pop()
+               stack.append(root)
+               root = root.left
+            top = stack.pop()
             k -= 1
             if not k:
-                return root.val
-            root = root.right
+                return top.val
+            else:
+                root = top.right
+           
