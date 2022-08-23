@@ -1,16 +1,13 @@
 class Solution:
     def romanToInt(self, s: str) -> int:
-        symbol_value = {
-            'I':             1,
-            'V':             5,
-            'X':             10,
-            'L':             50,
-            'C':             100,
-            'D':             500,
-            'M':             1000,
-        }
-
-        doubles = {
+        numerals = {
+            'I': 1,
+            'V': 5,
+            'X': 10,
+            'L': 50,
+            'C': 100,
+            'D': 500,
+            'M': 1000,
             'IV': 4,
             'IX': 9,
             'XL': 40,
@@ -19,26 +16,29 @@ class Solution:
             'CM': 900
         }
 
-        total = 0
-        chars = list(s)
-        i = 0
-        while i < len(chars):
-            char = chars[i]
-            next = '' if i == len(chars) - 1 else chars[i + 1]
-            
-            value = symbol_value[char]
-            double_key = f'{char}{next}'
-            if double_key in doubles:
-                value = doubles.get(double_key)
-                i += 1
-            
-            total += value
-            
-            i += 1
-        return total
+        val = 0
+        prev = ''
+        for c in s:
+            both = prev + c
+            if not prev:
+                val += numerals[c]
+            elif both in numerals:
+                delta = numerals[both]
+                val += delta - numerals[prev]
+            prev = c
+        return val
+
 
 
 s = Solution()
-# print(s.romanToInt("III"))
-# print(s.romanToInt("LVIII"))
-print(s.romanToInt("MCMXCIV"))
+assert(s.romanToInt("I") == 1)
+assert(s.romanToInt("V") == 5)
+assert(s.romanToInt("X") == 10)
+assert(s.romanToInt("L") == 50)
+assert(s.romanToInt("C") == 100)
+assert(s.romanToInt("D") == 500)
+assert(s.romanToInt("M") == 1000)
+
+assert(s.romanToInt("III") == 3)
+assert(s.romanToInt("LVIII") == 58)
+assert(s.romanToInt("MCMXCIV") == 1994)
